@@ -1,0 +1,12 @@
+# virtual environments
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# private API Credentials
+.env
+.env.*
+!.env.example
