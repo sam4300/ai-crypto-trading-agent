@@ -3,7 +3,7 @@ import pandas as pd
 def calculate_sma(
         df: pd.DataFrame,
         window: int = 3
-)-> pd.DataFrame:
+    )-> pd.DataFrame:
     """
     Return a DataFrame with a Simple Moving Average column
     """
