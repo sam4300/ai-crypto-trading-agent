@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas as pd
-from crypto_agent.indicators import calculate_sma
+from crypto_agent.strategy import generate_sma_signals
 
 def main():
     file_path = Path("data/raw/btc_usdt_1h.csv")
@@ -8,8 +8,8 @@ def main():
     df = pd.read_csv(file_path, parse_dates=["timestamp"])
 
     df = df.sort_values("timestamp").reset_index(drop = True)
-    result = calculate_sma(df, window= 3)
-    print(result[["timestamp", "close", "sma_3"]])
+    result = generate_sma_signals(df, window= 3)
+    print(result[["timestamp", "close", "sma_3", "signal"]])
 
 
 if __name__ == "__main__":
