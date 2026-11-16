@@ -7,7 +7,7 @@ import export_historical_data
 def test_csv_export(tmp_path, monkeypatch):
     # Create fake historical data
     fake_data = pd.DataFrame({
-        "timestamp": ["2026-11-09 01:00:00+00:00"],
+        "timestamp": pd.to_datetime(["2026-11-09 01:00:00+00:00"]),
         "open": [100.0],
         "high": [110.0],
         "low": [95.0],
@@ -29,7 +29,7 @@ def test_csv_export(tmp_path, monkeypatch):
         assert exchange is fake_exchange
         assert symbol == "BTC/USDT"
         assert timeframe == "1h"
-        assert limit == 10
+        assert limit == 200
         return fake_data
 
     monkeypatch.setattr(
